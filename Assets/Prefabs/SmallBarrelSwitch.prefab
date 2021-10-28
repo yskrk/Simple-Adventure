@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4121073359811041307}
   - component: {fileID: 4121073359811041306}
   m_Layer: 7
-  m_Name: SmallBottleSwitch
-  m_TagString: KeyBottleS
+  m_Name: SmallBarrelSwitch
+  m_TagString: BarrelSmall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 5506748161344357}
   - component: {fileID: 482591439883556414}
   m_Layer: 6
-  m_Name: SmlBottleTop
+  m_Name: SmlBarrelTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

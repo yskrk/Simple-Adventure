@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Moving Platform
-  - KeyBottleS
-  - KeyBottleL
+  - BarrelSmall
+  - BarrelLarge
   layers:
   - Default
   - TransparentFX
@@ -41,6 +41,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Gackground
+    uniqueID: 2153640211
+    locked: 0
+  - name: Props
+    uniqueID: 3146959179
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 4062594157
     locked: 0

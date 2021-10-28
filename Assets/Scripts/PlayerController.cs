@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
 			foreach (Collider2D obj in hitObject) {
 				// break object
-				if (obj.gameObject.tag == "KeyBottleS") {
+				if (obj.gameObject.tag == "BarrelSmall") {
 					Destroy(obj.gameObject);
 				}
 			}
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
 			foreach (Collider2D obj in hitObject) {
 				// break object
-				if (obj.gameObject.tag == "KeyBottleL") {
+				if (obj.gameObject.tag == "BarrelLarge") {
 					Destroy(obj.gameObject);
 				}
 			}

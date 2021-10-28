@@ -12,7 +12,7 @@ public class WallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.childCount == 0) {
+        if (transform.parent.childCount == 1) {
 			// focus wall
 			vCamController.TransitionTo(cameraToActivate);
 

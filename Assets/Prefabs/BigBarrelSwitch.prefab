@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6925202253099606334}
   - component: {fileID: 1488551705583443552}
   m_Layer: 6
-  m_Name: BigBottleTop
+  m_Name: BigBarrelTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,8 +69,8 @@ GameObject:
   - component: {fileID: 3121221360677265586}
   - component: {fileID: 3121221360677265585}
   m_Layer: 7
-  m_Name: BigBottleSwitch
-  m_TagString: KeyBottleL
+  m_Name: BigBarrelSwitch
+  m_TagString: BarrelLarge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
