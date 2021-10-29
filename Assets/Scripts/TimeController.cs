@@ -33,9 +33,9 @@ public class TimeController : MonoBehaviour
 
 		if (second <= 0.0f) {
 			// show result canvas for game over
+			Time.timeScale = 0.0f;
 			player.SetActive(false);
 			gameover.SetActive(true);
-			Time.timeScale = 0.0f;
 		}
     }
 }

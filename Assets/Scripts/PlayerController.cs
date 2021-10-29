@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 	private bool isGrounded = false;
 	private bool isFacingRight = true;
 	[Range(0.0f, 301.0f)]private float charge = 0.0f;
-	private const float CONST_BORDER = 120.0f;
+	private const float CONST_BORDER = 100.0f;
 
     // Start is called before the first frame update
     void Start()
