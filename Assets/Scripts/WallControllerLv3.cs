@@ -8,6 +8,11 @@ public class WallControllerLv3 : MonoBehaviour
 	[SerializeField] private GameObject cameraOut;
 	[SerializeField] private GameObject wallLv3;
 	[SerializeField] private float secondOpenWall = 30.0f;
+	[SerializeField] private AudioClip doorOpen;
+	[SerializeField] private AudioClip touchVase;
+	[SerializeField] private AudioClip soundClock;
+
+	private AudioSource sound;
 
 	public VirtualCameraController vCamController;
 	private float defaultSec;
@@ -17,6 +22,7 @@ public class WallControllerLv3 : MonoBehaviour
     void Start()
     {
 		defaultSec = secondOpenWall;
+		sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,6 +36,7 @@ public class WallControllerLv3 : MonoBehaviour
 
 		// enable wall
 		if (secondOpenWall <= 0.0f) {
+			sound.Stop();
 			controllWall(true);
 		}
 	}
@@ -37,6 +44,7 @@ public class WallControllerLv3 : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D other) {
 		// disable wall
 		if (isActive && other.gameObject.name == "Player") {
+			sound.PlayOneShot(touchVase);
 			controllWall(false);
 		}
 	}
@@ -55,7 +63,14 @@ public class WallControllerLv3 : MonoBehaviour
 	}
 
 	private void ActiveWall() {
+		sound.PlayOneShot(doorOpen);
 		wallLv3.gameObject.SetActive(isActive);
+		if (!isActive) {
+			sound.loop = true;
+			sound.clip = soundClock;
+			sound.Play();
+		}
+
 	}
 
 	private void ZoomToPlayer() {
