@@ -10,6 +10,7 @@ public class GoalController : MonoBehaviour
 	[SerializeField] private GameObject clear;
 	[SerializeField] private AudioClip soundClear;
 	[SerializeField] private AudioSource sourceBGM;
+	[SerializeField] private AudioSource sourceClock;
 
 	private AudioSource sound;
 
@@ -24,6 +25,7 @@ public class GoalController : MonoBehaviour
 		if (other.name == player.name) {
 			Time.timeScale = 0.0f;
 			sourceBGM.Stop();
+			sourceClock.Stop();
 			sound.PlayOneShot(soundClear, 1.5f);
 			clear.GetComponent<GameObject>();
 			clear.SetActive(true);

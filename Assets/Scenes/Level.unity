@@ -1755,6 +1755,10 @@ PrefabInstance:
       propertyPath: soundClear
       value: 
       objectReference: {fileID: 8300000, guid: c39e969314851a146a11a775f5ad381f, type: 3}
+    - target: {fileID: 7325025577813597237, guid: e190f761186e6ce40b6bd41183629371, type: 3}
+      propertyPath: sourceClock
+      value: 
+      objectReference: {fileID: 2331722511816767613}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e190f761186e6ce40b6bd41183629371, type: 3}
 --- !u!1001 &1187688925
@@ -38808,5 +38812,10 @@ MonoBehaviour:
 --- !u!224 &2331722511816767612 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6774151483420876344, guid: e6aa3e433be47be46bee7e1712e452d4, type: 3}
+  m_PrefabInstance: {fileID: 2331722511816767609}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2331722511816767613 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7550727083340409796, guid: e6aa3e433be47be46bee7e1712e452d4, type: 3}
   m_PrefabInstance: {fileID: 2331722511816767609}
   m_PrefabAsset: {fileID: 0}
