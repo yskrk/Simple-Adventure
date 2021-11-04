@@ -16,19 +16,12 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Transform chargeAtkArea;
 	[SerializeField] private LayerMask whatIsGround;
 	[SerializeField] private LayerMask objectsLayer;
-	[SerializeField] private  AudioClip soundAttack;
-	[SerializeField] private  AudioClip soundChargeAttack;
-	[SerializeField] private  AudioClip soundCharging;
-	[SerializeField] private  AudioClip soundBreakBarrel;
 
 	// private vals
 	private Rigidbody2D rBody;
 	private Animator anim;
-	private AudioSource sound;
-
 	private bool isGrounded = false;
 	private bool isFacingRight = true;
-	private bool isPlayedCharge = false;
 	[Range(0.0f, 301.0f)]private float charge = 0.0f;
 	private const float CONST_BORDER = 100.0f;
 
@@ -37,7 +30,6 @@ public class PlayerController : MonoBehaviour
     {
         rBody = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
-		sound = GetComponent<AudioSource>();
     }
 
 	// physics
@@ -65,14 +57,12 @@ public class PlayerController : MonoBehaviour
 
 		// attack
 		if (Input.GetMouseButtonDown(0)) {
-			sound.PlayOneShot(soundAttack);
 			anim.SetTrigger("isAttack");
 			Collider2D[] hitObject = Physics2D.OverlapCircleAll(attackArea.position, attackRadius, objectsLayer);
 
 			foreach (Collider2D obj in hitObject) {
 				// break object
 				if (obj.gameObject.tag == "BarrelSmall") {
-					sound.PlayOneShot(soundBreakBarrel);
 					Destroy(obj.gameObject);
 				}
 			}
@@ -82,28 +72,15 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetMouseButton(0)) {
 			charge++;
 			// Debug.Log("charge: " + charge);
-
-			// play charging se
-			if (!isPlayedCharge && charge >= CONST_BORDER) {
-				isPlayedCharge = true;
-				sound.loop = true;
-				sound.clip = soundCharging;
-				sound.Play();
-			}
 		}
 
-
-		if ((charge >= CONST_BORDER) && Input.GetMouseButtonUp(0)) {
-			isPlayedCharge = false;
-			sound.Stop();
-			sound.PlayOneShot(soundChargeAttack);
+		if (Input.GetMouseButtonUp(0) && (charge >= CONST_BORDER)) {
 			anim.SetTrigger("isChargeAttack");
 			Collider2D[] hitObject = Physics2D.OverlapCircleAll(chargeAtkArea.position, chargeAtkRadius, objectsLayer);
 
 			foreach (Collider2D obj in hitObject) {
 				// break object
 				if (obj.gameObject.tag == "BarrelLarge") {
-					sound.PlayOneShot(soundBreakBarrel);
 					Destroy(obj.gameObject);
 				}
 			}
