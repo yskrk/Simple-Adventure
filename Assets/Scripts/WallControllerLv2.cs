@@ -8,6 +8,10 @@ public class WallControllerLv2 : MonoBehaviour
 	[SerializeField] private GameObject cameraOut;
 	[SerializeField] private GameObject wallLv2;
 	[SerializeField] private List<int> listAnswer;
+	[SerializeField] private AudioClip doorOpen;
+	[SerializeField] private AudioClip incorrectOrder;
+
+	private AudioSource sound;
 
 	public VirtualCameraController vCamController;
 	
@@ -15,12 +19,14 @@ public class WallControllerLv2 : MonoBehaviour
 	private int countAnswer;
 	private bool isActive = true;
 	private bool isCorrect = false;
+	private bool isPlayed = false;
 
     // Start is called before the first frame update
     void Start()
     {
         listOrder = new List<int>();
 		countAnswer = listAnswer.Count;
+		sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,6 +42,7 @@ public class WallControllerLv2 : MonoBehaviour
 					}
 				} else {
 					// reset key order and vase condition
+					sound.PlayOneShot(incorrectOrder);
 					listOrder.Clear();
 					break;
 				}
@@ -43,6 +50,9 @@ public class WallControllerLv2 : MonoBehaviour
 
 			if (isCorrect) {
 				// if correct, remove wall and vases
+				foreach (Transform t in gameObject.transform) {
+					Destroy(t.gameObject);
+				}
 				controllWall(false);
 			}
 		}
@@ -62,6 +72,10 @@ public class WallControllerLv2 : MonoBehaviour
 	}
 
 	private void ActiveWall() {
+		if (!isPlayed) {
+			sound.PlayOneShot(doorOpen);
+			isPlayed = true;
+		}
 		wallLv2.gameObject.SetActive(isActive);
 	}
 
